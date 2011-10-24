@@ -29,8 +29,7 @@ When /^I shuffle the deck$/ do
   @deck.shuffle!
 end
 
-Then /^I should have a deck of (\d+) randomly ordered cards$/ do |arg1|
+Then /^I should have a deck of 52 randomly ordered cards$/ do
   ordered_deck = Deck.new
-  deck = Deck.new
-  deck.cards.should_not == ordered_deck.cards
+  @deck.cards.should_not == ordered_deck.cards
 end
