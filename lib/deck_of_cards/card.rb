@@ -13,8 +13,15 @@ class Card
   end
   
   class << self  
-    def from_ordinal(suit_index, face_index)
-      Card.new SUITS[suit_index], FACES[face_index]
+    def from_ordinal(suit, face_index)
+      Card.new suit, FACES[face_index]
+    end
+    
+    def create_suit(suit)
+      return nil unless SUITS.include? suit
+      cards = [13]
+      (0..12).each { |i| cards[i] = Card.from_ordinal(suit, i) }
+      cards
     end
   end
 end
