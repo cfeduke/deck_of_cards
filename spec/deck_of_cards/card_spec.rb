@@ -19,6 +19,13 @@ module DeckOfCards
         it { @card.suit.should == :spades }
         it { @card.face.should == :king }
       end
+      
+      describe "#create_suit" do
+        before { @suit = Card.create_suit(:spades) }
+        
+        it { @suit.should_not == nil }
+        it { @suit.count.should == 13 }
+      end
     end
     
     context "invalid values" do
