@@ -11,9 +11,9 @@ Then /^I should have a deck with 52 cards$/ do
 end
 
 Then /^they should have Ace, 2-10, Jack, Queen, King in four suits$/ do 
-  Card::SUITS.each_index do |suit_index|
+ Card::SUITS.each_index do | suit_index |
     suit = Card::SUITS[suit_index]
-    Card::FACES.each_index do |face_index|
+   Card::FACES.each_index do | face_index |
       card = @deck.cards[(suit_index * 13) + face_index]
       card.suit.should == suit
       card.face.should == Card::FACES[face_index]
@@ -53,4 +53,14 @@ end
 
 Then /^I should have one less card remaining in the deck$/ do
   @deck.cards.count.should == 51
+end
+
+Given /^I have a deck with no cards remaining$/ do
+  Given("I create a new deck of cards")
+  52.times { @deck.deal_one_card }
+end
+
+Then /^I should not be dealt a card$/ do
+  @dealt_card = @deck.deal_one_card
+  @dealt_card.should == nil
 end
