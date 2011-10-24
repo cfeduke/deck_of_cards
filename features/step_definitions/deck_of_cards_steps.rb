@@ -7,9 +7,16 @@ When /^I create a new deck of cards$/ do
 end
 
 Then /^I should have a deck with 52 cards$/ do
-  pending # express the regexp above with the code you wish you had
+  @deck.cards.count.should == 52
 end
 
 Then /^they should have Ace, 2-10, Jack, Queen, King in four suits$/ do 
-  pending # express the regexp above with the code you wish you had
+  Card::SUITS.each_index do |suit_index|
+    suit = Card::SUITS[suit_index]
+    Card::FACES.each_index do |face_index|
+      card = @deck.cards[(suit_index * 13) + face_index]
+      card.suit.should == suit
+      card.face.should == Card::FACES[face_index]
+    end
+  end
 end
