@@ -15,8 +15,7 @@ Feature: dealer deals cards
     When I deal a card
     Then I should not be dealt a card
   
-  @wip  
   Scenario: deal all cards
     Given I have a deck of 52 randomly ordered cards
     When I deal a card 52 times
-    Then I should be dealt a card I have not seen before
+    Then I should not have any been dealt any duplicate cards

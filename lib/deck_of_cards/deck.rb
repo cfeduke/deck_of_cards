@@ -7,6 +7,7 @@ class Deck
   end
   
   def shuffle!
+    # I bet you were hoping to find something far, far more interesting...
     @cards.sort_by! { rand }
   end
   

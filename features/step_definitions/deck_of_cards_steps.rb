@@ -64,3 +64,12 @@ Then /^I should not be dealt a card$/ do
   @dealt_card = @deck.deal_one_card
   @dealt_card.should == nil
 end
+
+When /^I deal a card 52 times$/ do
+  @dealt_cards = []
+  52.times { @dealt_cards << @deck.deal_one_card }
+end
+
+Then /^I should not have any been dealt any duplicate cards$/ do
+  @dealt_cards.uniq.count.should == 52
+end
