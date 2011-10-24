@@ -20,3 +20,17 @@ Then /^they should have Ace, 2-10, Jack, Queen, King in four suits$/ do
     end
   end
 end
+
+Given /^I have a deck of 52 ordered cards$/ do
+  When("I create a new deck of cards")
+end
+
+When /^I shuffle the deck$/ do
+  @deck.shuffle!
+end
+
+Then /^I should have a deck of (\d+) randomly ordered cards$/ do |arg1|
+  ordered_deck = Deck.new
+  deck = Deck.new
+  deck.cards.should_not == ordered_deck.cards
+end

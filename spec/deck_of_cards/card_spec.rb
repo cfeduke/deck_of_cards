@@ -31,7 +31,13 @@ module DeckOfCards
             @suit[i].face.should == Card::FACES[i]
           end
         end
-        
+      end
+      
+      describe "#==" do
+        it "should be equal when suit and face value match" do
+          card = Card.new(:spades, :nine)
+          card.should == Card.new(:spades, :nine)
+        end
       end
     end
     

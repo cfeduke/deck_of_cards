@@ -12,6 +12,11 @@ class Card
     @face = face if FACES.include? face
   end
   
+  def ==(other)
+    return false if other.nil?
+    self.suit == other.suit && self.face == other.face
+  end
+  
   class << self  
     def from_ordinal(suit, face_index)
       Card.new suit, FACES[face_index]
