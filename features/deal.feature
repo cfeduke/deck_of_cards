@@ -3,14 +3,15 @@ Feature: dealer deals cards
   As a card dealer
   I want to deal a card
   
+  @wip
   Scenario: deal one card
     Given I have a deck of 52 randomly ordered cards
-    And there are 0 or more cards remaining
-    When I deal a card
+    When there are 1 or more cards remaining
+    And I deal a card
     Then I should be dealt a card
       
   Scenario: deal no cards
-    Given I have a deck of 0 cards
+    Given I have a deck with 0 cards remaining
     When I deal a card
     Then I should not be dealt a card
     

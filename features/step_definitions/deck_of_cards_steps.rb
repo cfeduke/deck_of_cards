@@ -33,3 +33,20 @@ Then /^I should have a deck of 52 randomly ordered cards$/ do
   ordered_deck = Deck.new
   @deck.cards.should_not == ordered_deck.cards
 end
+
+Given /^I have a deck of 52 randomly ordered cards$/ do
+  @deck = Deck.new
+  @deck.shuffle!
+end
+
+When /^there are 1 or more cards remaining$/ do
+  @deck.cards.count.should >= 1
+end
+
+When /^I deal a card$/ do
+  @dealt_card = @deck.deal_one_card
+end
+
+Then /^I should be dealt a card$/ do
+  @dealt_card.should_not == nil
+end

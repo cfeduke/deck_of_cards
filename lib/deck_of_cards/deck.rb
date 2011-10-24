@@ -9,4 +9,8 @@ class Deck
   def shuffle!
     @cards.sort_by! { rand }
   end
+  
+  def deal_one_card
+    @cards.pop
+  end
 end
