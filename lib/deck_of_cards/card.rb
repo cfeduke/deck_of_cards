@@ -19,7 +19,7 @@ class Card
     
     def create_suit(suit)
       return nil unless SUITS.include? suit
-      cards = [13]
+      cards = Array.new(13)
       (0..12).each { |i| cards[i] = Card.from_ordinal(suit, i) }
       cards
     end
