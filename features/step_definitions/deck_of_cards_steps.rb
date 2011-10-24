@@ -39,7 +39,7 @@ Given /^I have a deck of 52 randomly ordered cards$/ do
   @deck.shuffle!
 end
 
-When /^there are 1 or more cards remaining$/ do
+When /^there are 52 cards remaining$/ do
   @deck.cards.count.should >= 1
 end
 
@@ -49,4 +49,8 @@ end
 
 Then /^I should be dealt a card$/ do
   @dealt_card.should_not == nil
+end
+
+Then /^I should have one less card remaining in the deck$/ do
+  @deck.cards.count.should == 51
 end
